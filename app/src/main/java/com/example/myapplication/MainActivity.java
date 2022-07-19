@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         float result = 0;
         boolean correctOperation = true;
 
-
         try {
             float numberInputOne = Float.parseFloat(exNum1.getText().toString());
             float numberInputTwo = Float.parseFloat(exNum2.getText().toString());
