@@ -58,8 +58,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     correctOperation = false;
                     break;
             }
+        } catch (ArithmeticException e) {
+            int duration = Toast.LENGTH_LONG;
+            if (toastError != null) {
+                toastError.cancel();
+            }
+            toastError = Toast.makeText(this, R.string.divide_zero, duration);
+            toastError.show();
+            return;
+
         } catch (NullPointerException e) {
-            int duration = Toast.LENGTH_SHORT;
+            int duration = Toast.LENGTH_LONG;
             if (toastError != null) {
                 toastError.cancel();
             }
