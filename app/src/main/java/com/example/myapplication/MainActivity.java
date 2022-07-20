@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvResultText;
     private Button btnCalculateResult;
     private Toast toastError;
+    static boolean correctOperation = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,32 +32,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        float result = 0;
-        boolean correctOperation = true;
+        float result;
+        float numberInputOne, numberInputTwo;
+        String taskOperation;
 
         try {
-            float numberInputOne = Float.parseFloat(exNum1.getText().toString());
-            float numberInputTwo = Float.parseFloat(exNum2.getText().toString());
-            String taskOperation = exOperation.getText().toString();
+            numberInputOne = Float.parseFloat(exNum1.getText().toString());
+            numberInputTwo = Float.parseFloat(exNum2.getText().toString());
+            taskOperation = exOperation.getText().toString();
+            var logicCalc = new LogicCalc();
 
-            switch (taskOperation) {
-                case "+":
-                    result = numberInputOne + numberInputTwo;
-                    break;
-                case "-":
-                    result = numberInputOne - numberInputTwo;
-                    break;
-                case "*":
-                    result = numberInputOne * numberInputTwo;
-                    break;
-                case "/":
-                    if (numberInputTwo == 0) throw new ArithmeticException();
-                    result = numberInputOne / numberInputTwo;
-                    break;
-                default:
-                    correctOperation = false;
-                    break;
-            }
+            result = logicCalc.logicCalc(taskOperation, numberInputOne, numberInputTwo);
+
         } catch (ArithmeticException e) {
             int duration = Toast.LENGTH_LONG;
             if (toastError != null) {
@@ -85,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         if (correctOperation) {
-            tvResultText.setText(""+ result);
+            tvResultText.setText(numberInputOne + " " + taskOperation + " " + numberInputTwo + "= " + result);
 
         } else {
             int duration = Toast.LENGTH_LONG;
