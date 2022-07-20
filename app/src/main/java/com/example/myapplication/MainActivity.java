@@ -9,13 +9,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText exNum1, exNum2, exOperation;
     private TextView tvResultText;
     private Button btnCalculateResult;
     private Toast toastError;
-    static boolean correctOperation = true;
+    static boolean correctOperation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        float result;
+        BigDecimal result;
         float numberInputOne, numberInputTwo;
         String taskOperation;
 
