@@ -9,16 +9,20 @@ public class LogicCalc {
         switch (taskOperation) {
             case "+":
                 result = numberInputOne + numberInputTwo;
+                mainActivity.correctOperation = true;
                 break;
             case "-":
                 result = numberInputOne - numberInputTwo;
+                mainActivity.correctOperation = true;
                 break;
             case "*":
                 result = numberInputOne * numberInputTwo;
+                mainActivity.correctOperation = true;
                 break;
             case "/":
                 if (numberInputTwo == 0) throw new ArithmeticException();
                 result = numberInputOne / numberInputTwo;
+                mainActivity.correctOperation = true;
                 break;
             default:
                 mainActivity.correctOperation = false;
