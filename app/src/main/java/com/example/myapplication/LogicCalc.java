@@ -1,33 +1,33 @@
 package com.example.myapplication;
 
-import java.math.BigDecimal;
-
 public class LogicCalc {
-    BigDecimal result;
+    Float result;
 
-    public BigDecimal logicCalc(String taskOperation, float numberInputOne, float numberInputTwo) {
-        var mainActivity = new MainActivity();
-
+    public Float logicCalc(String taskOperation, float numberInputOne, float numberInputTwo) {
         switch (taskOperation) {
             case "+":
-                result = BigDecimal.valueOf(numberInputOne + numberInputTwo);
-                mainActivity.correctOperation = true;
+                result = (numberInputOne + numberInputTwo);
+                MainActivity.correctOperation = true;
                 break;
             case "-":
-                result = BigDecimal.valueOf(numberInputOne - numberInputTwo);
-                mainActivity.correctOperation = true;
+                result = numberInputOne - numberInputTwo;
+                MainActivity.correctOperation = true;
                 break;
             case "*":
-                result = BigDecimal.valueOf(numberInputOne * numberInputTwo);
-                mainActivity.correctOperation = true;
+                result = (numberInputOne * numberInputTwo);
+                MainActivity.correctOperation = true;
                 break;
             case "/":
                 if (numberInputTwo == 0) throw new ArithmeticException();
-                result = BigDecimal.valueOf(numberInputOne / numberInputTwo);
-                mainActivity.correctOperation = true;
+                result = (numberInputOne / numberInputTwo);
+                MainActivity.correctOperation = true;
+                break;
+            case "%":
+                result = (numberInputOne % numberInputTwo);
+                MainActivity.correctOperation = true;
                 break;
             default:
-                mainActivity.correctOperation = false;
+                MainActivity.correctOperation = false;
                 break;
         }
         return result;

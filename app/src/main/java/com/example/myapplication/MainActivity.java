@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,7 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.math.BigDecimal;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        BigDecimal result;
+        Float result;
         float numberInputOne, numberInputTwo;
         String taskOperation;
 
@@ -74,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         if (correctOperation) {
-            tvResultText.setText(numberInputOne + " " + taskOperation + " " + numberInputTwo + "= " + result);
+            tvResultText.setText(numberInputOne + " " + taskOperation + " " + numberInputTwo + " = " + result);
 
         } else {
             int duration = Toast.LENGTH_LONG;
